@@ -1,0 +1,21 @@
+name: QA Test Runner
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: "url de la app"
+        required: true
+        type: string
+      so:
+        description: "sistema operativo"
+        required: false
+        default: "ios"
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up inputs
+        run: echo "Ejecutando pruebas para la app en ${{ inputs.app }} en el sistema operativo ${{ inputs.so }}"
+      - name: Run a one-line script
+        run: echo Hello, world!
